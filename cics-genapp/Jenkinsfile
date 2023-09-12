@@ -3,7 +3,7 @@ def zOsAgentLabel = env.ZOS_AGENT_LABEL ? env.ZOS_AGENT_LABEL : 'zsolt_zOS_Agent
 def linuxAgent = 'master'
 
 // GIT repositories
-def srcGitRepo =  'https://github.com/crpotter/dbb-pipeline.git'
+def srcGitRepo =  'https://github.com/ZMajor1995/dbb-pipeline.git'
 def srcGitBranch = 'main'
 def zAppBuildGitRepo = 'http://MVPGitLabServer1.fyre.ibm.com/dbb310/dbb320/dbb-zappbuild.git'
 def zAppBuildGitBranch = 'main'

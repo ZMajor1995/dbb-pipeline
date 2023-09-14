@@ -86,6 +86,7 @@ pipeline {
             agent { label zOsAgentLabel }
             steps {
                 script {
+                    println "env.CCC_HOST" + env.CCC_HOST
                     // Verbose
                     verbose = env.VERBOSE && env.VERBOSE == 'true' ? true : false
                     buildVerbose = verbose ? '-v' : ''

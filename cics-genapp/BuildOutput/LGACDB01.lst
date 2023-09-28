@@ -1,0 +1,826 @@
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612          Date 09/20/2023  Time 17:42:35   Page     1             
+0Invocation parameters:
+  NOCOMPILE,adata,exit(adexit(fttfdbkw))
+0Options in effect:
+    ADATA                                                                                                                            
+    QUOTE                                                                                                                            
+    ARITH(COMPAT)                                                                                                                    
+    BINARY(NATIVE)                                                                                                                   
+    CALLINT(SYSTEM,NODESCRIPTOR)                                                                                                     
+    CHAR(NATIVE)                                                                                                                     
+  NOCICS                                                                                                                             
+    COLLSEQ(BINARY)                                                                                                                  
+  NOCOMPILE                                                                                                                          
+  NOCOPYRIGHT                                                                                                                        
+  NOCURRENCY                                                                                                                         
+  NODIAGTRUNC                                                                                                                        
+    DIVIDE(NATIVE)                                                                                                                   
+  NODYNAM                                                                                                                            
+    ENTRYINT(SYSTEM)                                                                                                                 
+    EXIT(NOINEXIT,NOPRTEXIT,NOLIBEXIT,ADEXIT(FTTFDBKW),NOMSGEXIT)                                                                    
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    FLOAT(NATIVE)                                                                                                                    
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    LSTFILE(LOCALE)                                                                                                                  
+  NOMAP                                                                                                                              
+  NOMDECK                                                                                                                            
+    NCOLLSEQ(BINARY)                                                                                                                 
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    OPTIMIZE(0)                                                                                                                      
+    PGMNAME(LONGUPPER)                                                                                                               
+    PROBE                                                                                                                            
+    QUALIFY(COMPAT)                                                                                                                  
+  NORULES                                                                                                                            
+  NOSERVICE                                                                                                                          
+    SEPOBJ                                                                                                                           
+    SEQUENCE                                                                                                                         
+  NOSOSI                                                                                                                             
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+  NOSQL                                                                                                                              
+    SRCFORMAT(COMPAT)                                                                                                                
+  NOSSRANGE                                                                                                                          
+  NOSUPPRESS                                                                                                                         
+    TERM                                                                                                                             
+  NOTEST                                                                                                                             
+  NOTHREAD                                                                                                                           
+    TRUNC(STD)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWSCLEAR                                                                                                                          
+    XREF(FULL)                                                                                                                       
+    ZWB                                                                                                                              
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612          Date 09/20/2023  Time 17:42:35   Page     2             
+0LineID  Message code  Library phase message text
+                                                                                                                                     
+    107  IGYLI0049-S   The "COPY" library ".\LGPOLICY" was not found.  Skipped to the period terminating the "COPY" statement.       
+-Messages    Total    Informational    Warning    Error    Severe    Terminating
+0Printed:       1                                              1            
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612LGACDB01  Date 09/20/2023  Time 17:42:35   Page     3             
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000001               ******************************************************************        |                                  
+   000002               *                                                                *        |                                  
+   000003               * LICENSED MATERIALS - PROPERTY OF IBM                           *        |                                  
+   000004               *                                                                *        |                                  
+   000005               * "RESTRICTED MATERIALS OF IBM"                                  *        |                                  
+   000006               *                                                                *        |                                  
+   000007               * CB12                                                           *        |                                  
+   000008               *                                                                *        |                                  
+   000009               * (C) COPYRIGHT IBM CORP. 2011, 2013 ALL RIGHTS RESERVED         *        |                                  
+   000010               *                                                                *        |                                  
+   000011               * US GOVERNMENT USERS RESTRICTED RIGHTS - USE, DUPLICATION,      *        |                                  
+   000012               * OR DISCLOSURE RESTRICTED BY GSA ADP SCHEDULE                   *        |                                  
+   000013               * CONTRACT WITH IBM CORPORATION                                  *        |                                  
+   000014               *                                                                *        |                                  
+   000015               *                                                                *        |                                  
+   000016               *                    ADD Customer Details                        *        |                                  
+   000017               *                                                                *        |                                  
+   000018               *   To add customer's name, address and date of birth to the     *        |                                  
+   000019               *  DB2 customer table creating a new customer entry.             *        |                                  
+   000020               *                                                                *        |                                  
+   000021               *                                                                         |                                  
+   000022               *  RLAM 06/04/2021 10:11 Test Code Coverage                               |                                  
+   000023               *  SAJ 06/01/2023                                                         |                                  
+   000024               *  SAJ 06/05/2023                                                         |                                  
+   000025               *  SAJ 06/13/2023                                                         |                                  
+   000026               *  SAJ DEVELOP                                                            |                                  
+   000027               *  CRP 07/10/2023                                                         |                                  
+   000028               ******************************************************************        |                                  
+   000029                IDENTIFICATION DIVISION.                                                 |                                  
+   000030                PROGRAM-ID. LGACDB01.                                                    |                                  
+   000031                ENVIRONMENT DIVISION.                                                    |                                  
+   000032                CONFIGURATION SECTION.                                                   |                                  
+   000033               *                                                                         |                                  
+   000034                DATA DIVISION.                                                           |                                  
+   000035                                                                                         |                                  
+   000036                WORKING-STORAGE SECTION.                                                 |                                  
+   000037                                                                                         |                                  
+   000038               *----------------------------------------------------------------*        |                                  
+   000039               * Common defintions                                              *        |                                  
+   000040               *----------------------------------------------------------------*        |                                  
+   000041               * Run time (debug) infomation for this invocation                         |                                  
+   000042                 01  WS-HEADER.                                                          |                                  
+   000043                    03 WS-EYECATCHER            PIC X(16)                                |                                  
+   000044                                                 VALUE 'LGACDB01------WS'.               |                                  
+   000045                    03 WS-TRANSID               PIC X(4).                                |                                  
+   000046                    03 WS-TERMID                PIC X(4).                                |                                  
+   000047                    03 WS-TASKNUM               PIC 9(7).                                |                                  
+   000048                    03 WS-FILLER                PIC X.                                   |                                  
+   000049                    03 WS-ADDR-DFHCOMMAREA      USAGE is POINTER.                        |                                  
+   000050                    03 WS-CALEN                 PIC S9(4) COMP.                          |                                  
+   000051                                                                                         |                                  
+   000052               *                                                                         |                                  
+   000053                01  WS-RESP                   PIC S9(8) COMP.                            |                                  
+   000054                01  LastCustNum               PIC S9(8) COMP.                            |                                  
+   000055                01  GENAcount                 PIC X(16) Value 'GENACUSTNUM'.             |                                  
+   000056                01  GENApool                  PIC X(8)  Value 'GENA'.                    |                                  
+   000057               * Variables for time/date processing                                      |                                  
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612LGACDB01  Date 09/20/2023  Time 17:42:35   Page     4             
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000058                01  WS-ABSTIME                  PIC S9(8) COMP VALUE +0.                 |                                  
+   000059                01  WS-TIME                     PIC X(8)  VALUE SPACES.                  |IMP                               
+   000060                01  WS-DATE                     PIC X(10) VALUE SPACES.                  |IMP                               
+   000061                                                                                         |                                  
+   000062               * Error Message structure                                                 |                                  
+   000063                01  ERROR-MSG.                                                           |                                  
+   000064                    03 EM-DATE                  PIC X(8)  VALUE SPACES.                  |IMP                               
+   000065                    03 FILLER                   PIC X     VALUE SPACES.                  |IMP                               
+   000066                    03 EM-TIME                  PIC X(6)  VALUE SPACES.                  |IMP                               
+   000067                    03 FILLER                   PIC X(9)  VALUE ' LGACDB01'.             |                                  
+   000068                    03 EM-VARIABLE.                                                      |                                  
+   000069                      05 FILLER                 PIC X(6)  VALUE ' CNUM='.                |                                  
+   000070                      05 EM-CUSNUM              PIC X(10)  VALUE SPACES.                 |IMP                               
+   000071                      05 FILLER                 PIC X(6)  VALUE ' PNUM='.                |                                  
+   000072                      05 EM-POLNUM              PIC X(10)  VALUE SPACES.                 |IMP                               
+   000073                      05 EM-SQLREQ              PIC X(16) VALUE SPACES.                  |IMP                               
+   000074                      05 FILLER                 PIC X(9)  VALUE ' SQLCODE='.             |                                  
+   000075                      05 EM-SQLRC               PIC +9(5) USAGE DISPLAY.                 |                                  
+   000076                                                                                         |                                  
+   000077                01  CDB2AREA.                                                            |                                  
+   000078                    03 D2-REQUEST-ID            PIC X(6).                                |                                  
+   000079                    03 D2-RETURN-CODE           PIC 9(2).                                |                                  
+   000080                    03 D2-CUSTOMER-NUM          PIC 9(10).                               |                                  
+   000081                    03 D2-CUSTSECR-PASS         PIC X(32).                               |                                  
+   000082                    03 D2-CUSTSECR-COUNT        PIC X(4).                                |                                  
+   000083                    03 D2-CUSTSECR-STATE        PIC X.                                   |                                  
+   000084                    03 D2-CUSTSECR-DATA         PIC X(32445).                            |                                  
+   000085                                                                                         |                                  
+   000086                01  CA-ERROR-MSG.                                                        |                                  
+   000087                    03 FILLER                   PIC X(9)  VALUE 'COMMAREA='.             |                                  
+   000088                    03 CA-DATA                  PIC X(90) VALUE SPACES.                  |IMP                               
+   000089               *----------------------------------------------------------------*        |                                  
+   000090                77 LGACDB02                     PIC X(8)  VALUE 'LGACDB02'.              |                                  
+   000091                77 LGACVS01                     PIC X(8)  VALUE 'LGACVS01'.              |                                  
+   000092                77 LGAC-NCS                     PIC X(2)  VALUE 'ON'.                    |                                  
+   000093                77 WS-CS-PASSWORD               PIC X(16) Value 'NewPass'.               |                                  
+   000094                77 WS-CS-STATE                  PIC X     VALUE 'N'.                     |                                  
+   000095                77 WS-CA-COUNT                  PIC S9(9) COMP  Value 0.                 |                                  
+   000096                                                                                         |                                  
+   000097               *----------------------------------------------------------------*        |                                  
+   000098               * Definitions required for data manipulation                     *        |                                  
+   000099               *----------------------------------------------------------------*        |                                  
+   000100               * Fields to be used to check that commarea is correct length              |                                  
+   000101                01  WS-COMMAREA-LENGTHS.                                                 |                                  
+   000102                    03 WS-CA-HEADER-LEN         PIC S9(4) COMP VALUE +18.                |                                  
+   000103                    03 WS-REQUIRED-CA-LEN       PIC S9(4)      VALUE +0.                 |                                  
+   000104                                                                                         |                                  
+   000105                                                                                         |                                  
+   000106               *    Include copybook for defintion of customer details length            |                                  
+   000107                    COPY LGPOLICY.                                                       |                                  
+   000108               *----------------------------------------------------------------*        |                                  
+   000109                                                                                         |                                  
+   000110               *----------------------------------------------------------------*        |                                  
+   000111               * Definitions required by SQL statement                          *        |                                  
+   000112               *   DB2 datatypes to COBOL equivalents                           *        |                                  
+   000113               *     SMALLINT    :   PIC S9(4) COMP                             *        |                                  
+   000114               *     INTEGER     :   PIC S9(9) COMP                             *        |                                  
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612LGACDB01  Date 09/20/2023  Time 17:42:35   Page     5             
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000115               *     DATE        :   PIC X(10)                                  *        |                                  
+   000116               *     TIMESTAMP   :   PIC X(26)                                  *        |                                  
+   000117               *----------------------------------------------------------------*        |                                  
+   000118               * Host variables for output from DB2 integer types                        |                                  
+   000119                01  DB2-OUT-INTEGERS.                                                    |                                  
+   000120                    03 DB2-CUSTOMERNUM-INT   PIC S9(9) COMP.                             |                                  
+   000121               *----------------------------------------------------------------*        |                                  
+   000122                                                                                         |                                  
+   000123               *----------------------------------------------------------------*        |                                  
+   000124               *    DB2 CONTROL                                                          |                                  
+   000125               *----------------------------------------------------------------*        |                                  
+   000126               * SQLCA DB2 communications area                                           |                                  
+   000127                    EXEC SQL                                                             |                                  
+   000128                        INCLUDE SQLCA                                                    |                                  
+                                                                                                  |                                  
+ ==000128==> IGYDS0225-S An "EXEC SQL" statement was found, but the "SQL" compiler option was not |                                  
+                         in effect.  The statement was discarded.                                 |                                  
+                                                                                                  |                                  
+   000129                    END-EXEC.                                                            |                                  
+   000130                                                                                         |                                  
+   000131               ******************************************************************        |                                  
+   000132               *    L I N K A G E     S E C T I O N                                      |                                  
+   000133               ******************************************************************        |                                  
+   000134                LINKAGE SECTION.                                                         |                                  
+   000135                                                                                         |                                  
+   000136                01  DFHCOMMAREA.                                                         |                                  
+                                                                                                  |                                  
+ ==000136==> IGYDS1159-E A "PICTURE" clause was not found for elementary item "DFHCOMMAREA".      |                                  
+                         "PICTURE X(1)" was assumed.                                              |                                  
+                                                                                                  |                                  
+ ==000136==> IGYSC2025-W "DFHCOMMAREA" or one of its subordinates was referenced, but             |                                  
+                         "DFHCOMMAREA" was a "LINKAGE SECTION" item that did not have             |                                  
+                         addressability.  This reference will not be resolved successfully at     |                                  
+                         execution.                                                               |                                  
+                                                                                                  |                                  
+   000137                    EXEC SQL                                                             |                                  
+   000138                      INCLUDE LGCMAREA                                                   |                                  
+                                                                                                  |                                  
+ ==000138==> IGYDS0225-S An "EXEC SQL" statement was found, but the "SQL" compiler option was not |                                  
+                         in effect.  The statement was discarded.                                 |                                  
+                                                                                                  |                                  
+   000139                    END-EXEC.                                                            |                                  
+   000140                                                                                         |                                  
+   000141               ******************************************************************        |                                  
+   000142               *    P R O C E D U R E S                                                  |                                  
+   000143               ******************************************************************        |                                  
+   000144                PROCEDURE DIVISION.                                                      |                                  
+   000145                                                                                         |                                  
+   000146               *----------------------------------------------------------------*        |                                  
+   000147                MAINLINE SECTION.                                                        |                                  
+   000148                                                                                         |                                  
+   000149               *----------------------------------------------------------------*        |                                  
+   000150               * Common code                                                    *        |                                  
+   000151               *----------------------------------------------------------------*        |                                  
+   000152               * initialize working storage variables                                    |                                  
+   000153                    INITIALIZE WS-HEADER.                                                |42                                
+   000154               * set up general variable                                                 |                                  
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612LGACDB01  Date 09/20/2023  Time 17:42:35   Page     6             
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000155                    MOVE EIBTRNID TO WS-TRANSID.                                         |UND 45                            
+                                                                                                  |                                  
+ ==000155==> IGYPS2121-S "EIBTRNID" was not defined as a data-name.  The statement was discarded. |                                  
+                                                                                                  |                                  
+   000156                    MOVE EIBTRMID TO WS-TERMID.                                          |UND 46                            
+                                                                                                  |                                  
+ ==000156==> IGYPS2121-S "EIBTRMID" was not defined as a data-name.  The statement was discarded. |                                  
+                                                                                                  |                                  
+   000157                    MOVE EIBTASKN TO WS-TASKNUM.                                         |UND 47                            
+                                                                                                  |                                  
+ ==000157==> IGYPS2121-S "EIBTASKN" was not defined as a data-name.  The statement was discarded. |                                  
+                                                                                                  |                                  
+   000158               *----------------------------------------------------------------*        |                                  
+   000159                                                                                         |                                  
+   000160                                                                                         |                                  
+   000161               * initialize DB2 host variables                                           |                                  
+   000162                    INITIALIZE DB2-OUT-INTEGERS.                                         |119                               
+   000163                                                                                         |                                  
+   000164               *----------------------------------------------------------------*        |                                  
+   000165               * Process incoming commarea                                      *        |                                  
+   000166               *----------------------------------------------------------------*        |                                  
+   000167               * If NO commarea received issue an ABEND                                  |                                  
+   000168                    IF EIBCALEN IS EQUAL TO ZERO                                         |UND IMP                           
+                                                                                                  |                                  
+ ==000168==> IGYPS2121-S "EIBCALEN" was not defined as a data-name.  The statement was discarded. |                                  
+                                                                                                  |                                  
+   000169      1                 MOVE ' NO COMMAREA RECEIVED' TO EM-VARIABLE                      |68                                
+   000170      1                 PERFORM WRITE-ERROR-MESSAGE                                      |318                               
+   000171      1                 EXEC CICS ABEND ABCODE('LGCA') NODUMP END-EXEC                   |                                  
+                                                                                                  |                                  
+ ==000171==> IGYPS0228-S An "EXEC CICS" statement was found, but the "CICS" compiler option was   |                                  
+                         not in effect.  The statement was discarded.                             |                                  
+                                                                                                  |                                  
+   000172                    END-IF                                                               |                                  
+   000173                                                                                         |                                  
+   000174               * initialize commarea return code to zero                                 |                                  
+   000175                    MOVE '00' TO CA-RETURN-CODE                                          |UND                               
+                                                                                                  |                                  
+ ==000175==> IGYPS2121-S "CA-RETURN-CODE" was not defined as a data-name.  The statement was      |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000176                    MOVE EIBCALEN TO WS-CALEN.                                           |UND 50                            
+                                                                                                  |                                  
+ ==000176==> IGYPS2121-S "EIBCALEN" was not defined as a data-name.  The statement was discarded. |                                  
+                                                                                                  |                                  
+   000177                    SET WS-ADDR-DFHCOMMAREA TO ADDRESS OF DFHCOMMAREA.                   |49 IMP 136                        
+   000178                                                                                         |                                  
+   000179               * check commarea length                                                   |                                  
+   000180                    ADD WS-CA-HEADER-LEN TO WS-REQUIRED-CA-LEN                           |102 103                           
+   000181                    ADD WS-CUSTOMER-LEN  TO WS-REQUIRED-CA-LEN                           |UND 103                           
+                                                                                                  |                                  
+ ==000181==> IGYPS2121-S "WS-CUSTOMER-LEN" was not defined as a data-name.  The statement was     |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000182                                                                                         |                                  
+   000183               * if less set error return code and return to caller                      |                                  
+   000184                    IF EIBCALEN IS LESS THAN WS-REQUIRED-CA-LEN                          |UND 103                           
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612LGACDB01  Date 09/20/2023  Time 17:42:35   Page     7             
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0                                                                                                 |                                  
+ ==000184==> IGYPS2121-S "EIBCALEN" was not defined as a data-name.  The statement was discarded. |                                  
+                                                                                                  |                                  
+   000185      1               MOVE '98' TO CA-RETURN-CODE                                        |UND                               
+                                                                                                  |                                  
+ ==000185==> IGYPS2121-S "CA-RETURN-CODE" was not defined as a data-name.  The statement was      |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000186      1               EXEC CICS RETURN END-EXEC                                          |                                  
+                                                                                                  |                                  
+ ==000186==> IGYPS0228-S An "EXEC CICS" statement was found, but the "CICS" compiler option was   |                                  
+                         not in effect.  The statement was discarded.                             |                                  
+                                                                                                  |                                  
+   000187                    END-IF                                                               |                                  
+   000188                                                                                         |                                  
+   000189               * Call routine to Insert row in Customer table                   *        |                                  
+   000190                    PERFORM Obtain-CUSTOMER-Number.                                      |222                               
+   000191                    PERFORM INSERT-CUSTOMER.                                             |238                               
+   000192                                                                                         |                                  
+   000193                    EXEC CICS LINK Program(LGACVS01)                                     |                                  
+                                                                                                  |                                  
+ ==000193==> IGYPS0228-S An "EXEC CICS" statement was found, but the "CICS" compiler option was   |                                  
+                         not in effect.  The statement was discarded.                             |                                  
+                                                                                                  |                                  
+   000194                         Commarea(DFHCOMMAREA)                                           |                                  
+   000195                         LENGTH(225)                                                     |                                  
+   000196                    END-EXEC.                                                            |                                  
+   000197                                                                                         |                                  
+   000198                    MOVE DB2-CUSTOMERNUM-INT TO D2-CUSTOMER-NUM.                         |120 80                            
+   000199                    Move '02ACUS'     To  D2-REQUEST-ID.                                 |78                                
+   000200                    move '5732fec825535eeafb8fac50fee3a8aa'                              |                                  
+   000201                                      To  D2-CUSTSECR-PASS.                              |81                                
+   000202                    Move '0000'       To  D2-CUSTSECR-COUNT.                             |82                                
+   000203                    Move 'N'          To  D2-CUSTSECR-STATE.                             |83                                
+   000204                                                                                         |                                  
+   000205                    EXEC CICS LINK Program(LGACDB02)                                     |                                  
+                                                                                                  |                                  
+ ==000205==> IGYPS0228-S An "EXEC CICS" statement was found, but the "CICS" compiler option was   |                                  
+                         not in effect.  The statement was discarded.                             |                                  
+                                                                                                  |                                  
+   000206                         Commarea(CDB2AREA)                                              |                                  
+   000207                         LENGTH(32500)                                                   |                                  
+   000208                    END-EXEC.                                                            |                                  
+   000209                                                                                         |                                  
+   000210                    IF CA-RETURN-CODE NOT EQUAL 0                                        |UND                               
+                                                                                                  |                                  
+ ==000210==> IGYPS2121-S "CA-RETURN-CODE" was not defined as a data-name.  The statement was      |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000211      1               EXEC CICS RETURN END-EXEC                                          |                                  
+                                                                                                  |                                  
+ ==000211==> IGYPS0228-S An "EXEC CICS" statement was found, but the "CICS" compiler option was   |                                  
+                         not in effect.  The statement was discarded.                             |                                  
+                                                                                                  |                                  
+   000212                    END-IF                                                               |                                  
+   000213                                                                                         |                                  
+   000214               *    Return to caller                                                     |                                  
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612LGACDB01  Date 09/20/2023  Time 17:42:35   Page     8             
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000215                    EXEC CICS RETURN END-EXEC.                                           |                                  
+                                                                                                  |                                  
+ ==000215==> IGYPS0228-S An "EXEC CICS" statement was found, but the "CICS" compiler option was   |                                  
+                         not in effect.  The statement was discarded.                             |                                  
+                                                                                                  |                                  
+   000216                                                                                         |                                  
+   000217                MAINLINE-EXIT.                                                           |                                  
+   000218                    EXIT.                                                                |                                  
+   000219               *----------------------------------------------------------------*        |                                  
+   000220                                                                                         |                                  
+   000221                                                                                         |                                  
+   000222                Obtain-CUSTOMER-Number.                                                  |                                  
+   000223                                                                                         |                                  
+   000224                    Exec CICS Get Counter(GENAcount)                                     |                                  
+                                                                                                  |                                  
+ ==000224==> IGYPS0228-S An "EXEC CICS" statement was found, but the "CICS" compiler option was   |                                  
+                         not in effect.  The statement was discarded.                             |                                  
+                                                                                                  |                                  
+   000225                                  Pool(GENApool)                                         |                                  
+   000226                                  Value(LastCustNum)                                     |                                  
+   000227                                  Resp(WS-RESP)                                          |                                  
+   000228                    End-Exec.                                                            |                                  
+   000229                    If WS-RESP Not = DFHRESP(NORMAL)                                     |53 UND UND                        
+                                                                                                  |                                  
+ ==000229==> IGYPS2121-S "DFHRESP" was not defined as a data-name.  The statement was discarded.  |                                  
+                                                                                                  |                                  
+ ==000229==> IGYPS2121-S "NORMAL" was not defined as a data-name.  The statement was discarded.   |                                  
+                                                                                                  |                                  
+ ==000229==> IGYPS2120-S Expected a reference-modification specification but found ")".  The "IF" |                                  
+                         statement was discarded.                                                 |                                  
+                                                                                                  |                                  
+   000230      1               MOVE 'NO' TO LGAC-NCS                                              |92                                
+   000231      1               Initialize DB2-CUSTOMERNUM-INT                                     |120                               
+   000232                    ELSE                                                                 |                                  
+   000233      1               Move LastCustNum  To DB2-CUSTOMERNUM-INT                           |54 120                            
+   000234                    End-If.                                                              |                                  
+   000235                                                                                         |                                  
+   000236                                                                                         |                                  
+   000237               *================================================================*        |                                  
+   000238                INSERT-CUSTOMER.                                                         |                                  
+   000239               *================================================================*        |                                  
+   000240               * Insert row into Customer table based on customer number        *        |                                  
+   000241               *================================================================*        |                                  
+   000242                    MOVE ' INSERT CUSTOMER' TO EM-SQLREQ                                 |73                                
+   000243               *================================================================*        |                                  
+   000244                    IF LGAC-NCS = 'ON'                                                   |92                                
+   000245      1               EXEC SQL                                                           |                                  
+   000246      1                 INSERT INTO CUSTOMER                                             |                                  
+                                                                                                  |                                  
+ ==000246==> IGYPS0225-S An "EXEC SQL" statement was found, but the "SQL" compiler option was not |                                  
+                         in effect.  The statement was discarded.                                 |                                  
+                                                                                                  |                                  
+   000247      1                           ( CUSTOMERNUMBER,                                      |                                  
+   000248      1                             FIRSTNAME,                                           |                                  
+   000249      1                             LASTNAME,                                            |                                  
+   000250      1                             DATEOFBIRTH,                                         |                                  
+   000251      1                             HOUSENAME,                                           |                                  
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612LGACDB01  Date 09/20/2023  Time 17:42:35   Page     9             
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000252      1                             HOUSENUMBER,                                         |                                  
+   000253      1                             POSTCODE,                                            |                                  
+   000254      1                             PHONEMOBILE,                                         |                                  
+   000255      1                             PHONEHOME,                                           |                                  
+   000256      1                             EMAILADDRESS )                                       |                                  
+   000257      1                    VALUES ( :DB2-CUSTOMERNUM-INT,                                |120                               
+   000258      1                             :CA-FIRST-NAME,                                      |UND                               
+                                                                                                  |                                  
+ ==000258==> IGYPS2121-S "CA-FIRST-NAME" was not defined as a data-name.  The statement was       |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000259      1                             :CA-LAST-NAME,                                       |UND                               
+                                                                                                  |                                  
+ ==000259==> IGYPS2121-S "CA-LAST-NAME" was not defined as a data-name.  The statement was        |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000260      1                             :CA-DOB,                                             |UND                               
+                                                                                                  |                                  
+ ==000260==> IGYPS2121-S "CA-DOB" was not defined as a data-name.  The statement was discarded.   |                                  
+                                                                                                  |                                  
+   000261      1                             :CA-HOUSE-NAME,                                      |UND                               
+                                                                                                  |                                  
+ ==000261==> IGYPS2121-S "CA-HOUSE-NAME" was not defined as a data-name.  The statement was       |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000262      1                             :CA-HOUSE-NUM,                                       |UND                               
+                                                                                                  |                                  
+ ==000262==> IGYPS2121-S "CA-HOUSE-NUM" was not defined as a data-name.  The statement was        |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000263      1                             :CA-POSTCODE,                                        |UND                               
+                                                                                                  |                                  
+ ==000263==> IGYPS2121-S "CA-POSTCODE" was not defined as a data-name.  The statement was         |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000264      1                             :CA-PHONE-MOBILE,                                    |UND                               
+                                                                                                  |                                  
+ ==000264==> IGYPS2121-S "CA-PHONE-MOBILE" was not defined as a data-name.  The statement was     |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000265      1                             :CA-PHONE-HOME,                                      |UND                               
+                                                                                                  |                                  
+ ==000265==> IGYPS2121-S "CA-PHONE-HOME" was not defined as a data-name.  The statement was       |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000266      1                             :CA-EMAIL-ADDRESS )                                  |UND                               
+                                                                                                  |                                  
+ ==000266==> IGYPS2121-S "CA-EMAIL-ADDRESS" was not defined as a data-name.  The statement was    |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000267      1               END-EXEC                                                           |                                  
+   000268      1               IF SQLCODE NOT EQUAL 0                                             |UND                               
+                                                                                                  |                                  
+ ==000268==> IGYPS2121-S "SQLCODE" was not defined as a data-name.  The statement was discarded.  |                                  
+                                                                                                  |                                  
+   000269      2                 MOVE '90' TO CA-RETURN-CODE                                      |UND                               
+                                                                                                  |                                  
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612LGACDB01  Date 09/20/2023  Time 17:42:35   Page    10             
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0==000269==> IGYPS2121-S "CA-RETURN-CODE" was not defined as a data-name.  The statement was      |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000270      2                 PERFORM WRITE-ERROR-MESSAGE                                      |318                               
+   000271      2                 EXEC CICS RETURN END-EXEC                                        |                                  
+                                                                                                  |                                  
+ ==000271==> IGYPS0228-S An "EXEC CICS" statement was found, but the "CICS" compiler option was   |                                  
+                         not in effect.  The statement was discarded.                             |                                  
+                                                                                                  |                                  
+   000272      1               END-IF                                                             |                                  
+   000273                    ELSE                                                                 |                                  
+   000274      1               EXEC SQL                                                           |                                  
+   000275      1                 INSERT INTO CUSTOMER                                             |                                  
+                                                                                                  |                                  
+ ==000275==> IGYPS0225-S An "EXEC SQL" statement was found, but the "SQL" compiler option was not |                                  
+                         in effect.  The statement was discarded.                                 |                                  
+                                                                                                  |                                  
+   000276      1                           ( CUSTOMERNUMBER,                                      |                                  
+   000277      1                             FIRSTNAME,                                           |                                  
+   000278      1                             LASTNAME,                                            |                                  
+   000279      1                             DATEOFBIRTH,                                         |                                  
+   000280      1                             HOUSENAME,                                           |                                  
+   000281      1                             HOUSENUMBER,                                         |                                  
+   000282      1                             POSTCODE,                                            |                                  
+   000283      1                             PHONEMOBILE,                                         |                                  
+   000284      1                             PHONEHOME,                                           |                                  
+   000285      1                             EMAILADDRESS )                                       |                                  
+   000286      1                    VALUES ( DEFAULT,                                             |                                  
+   000287      1                             :CA-FIRST-NAME,                                      |UND                               
+                                                                                                  |                                  
+ ==000287==> IGYPS2121-S "CA-FIRST-NAME" was not defined as a data-name.  The statement was       |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000288      1                             :CA-LAST-NAME,                                       |UND                               
+                                                                                                  |                                  
+ ==000288==> IGYPS2121-S "CA-LAST-NAME" was not defined as a data-name.  The statement was        |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000289      1                             :CA-DOB,                                             |UND                               
+                                                                                                  |                                  
+ ==000289==> IGYPS2121-S "CA-DOB" was not defined as a data-name.  The statement was discarded.   |                                  
+                                                                                                  |                                  
+   000290      1                             :CA-HOUSE-NAME,                                      |UND                               
+                                                                                                  |                                  
+ ==000290==> IGYPS2121-S "CA-HOUSE-NAME" was not defined as a data-name.  The statement was       |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000291      1                             :CA-HOUSE-NUM,                                       |UND                               
+                                                                                                  |                                  
+ ==000291==> IGYPS2121-S "CA-HOUSE-NUM" was not defined as a data-name.  The statement was        |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000292      1                             :CA-POSTCODE,                                        |UND                               
+                                                                                                  |                                  
+ ==000292==> IGYPS2121-S "CA-POSTCODE" was not defined as a data-name.  The statement was         |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612LGACDB01  Date 09/20/2023  Time 17:42:35   Page    11             
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000293      1                             :CA-PHONE-MOBILE,                                    |UND                               
+                                                                                                  |                                  
+ ==000293==> IGYPS2121-S "CA-PHONE-MOBILE" was not defined as a data-name.  The statement was     |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000294      1                             :CA-PHONE-HOME,                                      |UND                               
+                                                                                                  |                                  
+ ==000294==> IGYPS2121-S "CA-PHONE-HOME" was not defined as a data-name.  The statement was       |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000295      1                             :CA-EMAIL-ADDRESS )                                  |UND                               
+                                                                                                  |                                  
+ ==000295==> IGYPS2121-S "CA-EMAIL-ADDRESS" was not defined as a data-name.  The statement was    |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000296      1               END-EXEC                                                           |                                  
+   000297      1               IF SQLCODE NOT EQUAL 0                                             |UND                               
+                                                                                                  |                                  
+ ==000297==> IGYPS2121-S "SQLCODE" was not defined as a data-name.  The statement was discarded.  |                                  
+                                                                                                  |                                  
+   000298      2                 MOVE '90' TO CA-RETURN-CODE                                      |UND                               
+                                                                                                  |                                  
+ ==000298==> IGYPS2121-S "CA-RETURN-CODE" was not defined as a data-name.  The statement was      |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000299      2                 PERFORM WRITE-ERROR-MESSAGE                                      |318                               
+   000300      2                 EXEC CICS RETURN END-EXEC                                        |                                  
+                                                                                                  |                                  
+ ==000300==> IGYPS0228-S An "EXEC CICS" statement was found, but the "CICS" compiler option was   |                                  
+                         not in effect.  The statement was discarded.                             |                                  
+                                                                                                  |                                  
+   000301      1               END-IF                                                             |                                  
+   000302               *    get value of assigned customer number                                |                                  
+   000303      1                 EXEC SQL                                                         |                                  
+   000304      1                   SET :DB2-CUSTOMERNUM-INT = IDENTITY_VAL_LOCAL()                |120                               
+                                                                                                  |                                  
+ ==000304==> IGYPS0225-S An "EXEC SQL" statement was found, but the "SQL" compiler option was not |                                  
+                         in effect.  The statement was discarded.                                 |                                  
+                                                                                                  |                                  
+   000305      1                 END-EXEC                                                         |                                  
+   000306                    END-IF.                                                              |                                  
+   000307                                                                                         |                                  
+   000308                    MOVE DB2-CUSTOMERNUM-INT TO CA-CUSTOMER-NUM.                         |120 UND                           
+                                                                                                  |                                  
+ ==000308==> IGYPS2121-S "CA-CUSTOMER-NUM" was not defined as a data-name.  The statement was     |                                  
+                         discarded.                                                               |                                  
+                                                                                                  |                                  
+   000309                                                                                         |                                  
+   000310                    EXIT.                                                                |                                  
+   000311               *================================================================*        |                                  
+   000312                                                                                         |                                  
+   000313               *================================================================*        |                                  
+   000314               * Procedure to write error message to Queues                     *        |                                  
+   000315               *   message will include Date, Time, Program Name, Customer      *        |                                  
+   000316               *   Number, Policy Number and SQLCODE.                           *        |                                  
+   000317               *================================================================*        |                                  
+   000318                WRITE-ERROR-MESSAGE.                                                     |                                  
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612LGACDB01  Date 09/20/2023  Time 17:42:35   Page    12             
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000319               * Save SQLCODE in message                                                 |                                  
+   000320                    MOVE SQLCODE TO EM-SQLRC                                             |UND 75                            
+                                                                                                  |                                  
+ ==000320==> IGYPS2121-S "SQLCODE" was not defined as a data-name.  The statement was discarded.  |                                  
+                                                                                                  |                                  
+   000321               * Obtain and format current time and date                                 |                                  
+   000322                    EXEC CICS ASKTIME ABSTIME(WS-ABSTIME)                                |                                  
+                                                                                                  |                                  
+ ==000322==> IGYPS0228-S An "EXEC CICS" statement was found, but the "CICS" compiler option was   |                                  
+                         not in effect.  The statement was discarded.                             |                                  
+                                                                                                  |                                  
+   000323                    END-EXEC                                                             |                                  
+   000324                    EXEC CICS FORMATTIME ABSTIME(WS-ABSTIME)                             |                                  
+                                                                                                  |                                  
+ ==000324==> IGYPS0228-S An "EXEC CICS" statement was found, but the "CICS" compiler option was   |                                  
+                         not in effect.  The statement was discarded.                             |                                  
+                                                                                                  |                                  
+   000325                              MMDDYYYY(WS-DATE)                                          |                                  
+   000326                              TIME(WS-TIME)                                              |                                  
+   000327                    END-EXEC                                                             |                                  
+   000328                    MOVE WS-DATE TO EM-DATE                                              |60 64                             
+   000329                    MOVE WS-TIME TO EM-TIME                                              |59 66                             
+   000330               * Write output message to TDQ                                             |                                  
+   000331                    EXEC CICS LINK PROGRAM('LGSTSQ')                                     |                                  
+                                                                                                  |                                  
+ ==000331==> IGYPS0228-S An "EXEC CICS" statement was found, but the "CICS" compiler option was   |                                  
+                         not in effect.  The statement was discarded.                             |                                  
+                                                                                                  |                                  
+   000332                              COMMAREA(ERROR-MSG)                                        |                                  
+   000333                              LENGTH(LENGTH OF ERROR-MSG)                                |                                  
+   000334                    END-EXEC.                                                            |                                  
+   000335               * Write 90 bytes or as much as we have of commarea to TDQ                 |                                  
+   000336                    IF EIBCALEN > 0 THEN                                                 |UND                               
+                                                                                                  |                                  
+ ==000336==> IGYPS2121-S "EIBCALEN" was not defined as a data-name.  The statement was discarded. |                                  
+                                                                                                  |                                  
+   000337      1               IF EIBCALEN < 91 THEN                                              |UND                               
+                                                                                                  |                                  
+ ==000337==> IGYPS2121-S "EIBCALEN" was not defined as a data-name.  The statement was discarded. |                                  
+                                                                                                  |                                  
+   000338      2                 MOVE DFHCOMMAREA(1:EIBCALEN) TO CA-DATA                          |136 UND 88                        
+                                                                                                  |                                  
+ ==000338==> IGYPS2121-S "EIBCALEN" was not defined as a data-name.  The statement was discarded. |                                  
+                                                                                                  |                                  
+   000339      2                 EXEC CICS LINK PROGRAM('LGSTSQ')                                 |                                  
+                                                                                                  |                                  
+ ==000339==> IGYPS0228-S An "EXEC CICS" statement was found, but the "CICS" compiler option was   |                                  
+                         not in effect.  The statement was discarded.                             |                                  
+                                                                                                  |                                  
+   000340      2                           COMMAREA(CA-ERROR-MSG)                                 |                                  
+   000341      2                           LENGTH(LENGTH OF CA-ERROR-MSG)                         |                                  
+   000342      2                 END-EXEC                                                         |                                  
+   000343      1               ELSE                                                               |                                  
+   000344      2                 MOVE DFHCOMMAREA(1:90) TO CA-DATA                                |136 88                            
+   000345      2                 EXEC CICS LINK PROGRAM('LGSTSQ')                                 |                                  
+                                                                                                  |                                  
+ ==000345==> IGYPS0228-S An "EXEC CICS" statement was found, but the "CICS" compiler option was   |                                  
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612LGACDB01  Date 09/20/2023  Time 17:42:35   Page    13             
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0                        not in effect.  The statement was discarded.                             |                                  
+                                                                                                  |                                  
+   000346      2                           COMMAREA(CA-ERROR-MSG)                                 |                                  
+   000347      2                           LENGTH(LENGTH OF CA-ERROR-MSG)                         |                                  
+   000348      2                 END-EXEC                                                         |                                  
+   000349      1               END-IF                                                             |                                  
+   000350                    END-IF.                                                              |                                  
+   000351                    EXIT.                                                                |                                  
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612LGACDB01  Date 09/20/2023  Time 17:42:35   Page    14             
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.
+  
+  Defined   Cross-reference of data names   References                                                                               
+  
+       88   CA-DATA. . . . . . . . . . . .  M338 M344                                                                                                                                            
+       86   CA-ERROR-MSG                                                                                                                                                                         
+       77   CDB2AREA                                                                                                                                                                             
+       80   D2-CUSTOMER-NUM. . . . . . . .  M198                                                                                                                                                 
+       82   D2-CUSTSECR-COUNT. . . . . . .  M202                                                                                                                                                 
+       84   D2-CUSTSECR-DATA                                                                                                                                                                     
+       81   D2-CUSTSECR-PASS . . . . . . .  M201                                                                                                                                                 
+       83   D2-CUSTSECR-STATE. . . . . . .  M203                                                                                                                                                 
+       78   D2-REQUEST-ID. . . . . . . . .  M199                                                                                                                                                 
+       79   D2-RETURN-CODE                                                                                                                                                                       
+      120   DB2-CUSTOMERNUM-INT. . . . . .  198 M231 M233 257 304 308                                                                                                                            
+      119   DB2-OUT-INTEGERS . . . . . . .  M162                                                                                                                                                 
+      136   DFHCOMMAREA. . . . . . . . . .  177 338 344                                                                                                                                          
+       70   EM-CUSNUM                                                                                                                                                                            
+       64   EM-DATE. . . . . . . . . . . .  M328                                                                                                                                                 
+       72   EM-POLNUM                                                                                                                                                                            
+       75   EM-SQLRC . . . . . . . . . . .  M320                                                                                                                                                 
+       73   EM-SQLREQ. . . . . . . . . . .  M242                                                                                                                                                 
+       66   EM-TIME. . . . . . . . . . . .  M329                                                                                                                                                 
+       68   EM-VARIABLE. . . . . . . . . .  M169                                                                                                                                                 
+       63   ERROR-MSG                                                                                                                                                                            
+       55   GENACOUNT                                                                                                                                                                            
+       56   GENAPOOL                                                                                                                                                                             
+       54   LASTCUSTNUM. . . . . . . . . .  233                                                                                                                                                  
+       92   LGAC-NCS . . . . . . . . . . .  M230 244                                                                                                                                             
+       90   LGACDB02                                                                                                                                                                             
+       91   LGACVS01                                                                                                                                                                             
+       58   WS-ABSTIME                                                                                                                                                                           
+       49   WS-ADDR-DFHCOMMAREA. . . . . .  M177                                                                                                                                                 
+       95   WS-CA-COUNT                                                                                                                                                                          
+      102   WS-CA-HEADER-LEN . . . . . . .  180                                                                                                                                                  
+       50   WS-CALEN . . . . . . . . . . .  M176                                                                                                                                                 
+      101   WS-COMMAREA-LENGTHS                                                                                                                                                                  
+       93   WS-CS-PASSWORD                                                                                                                                                                       
+       94   WS-CS-STATE                                                                                                                                                                          
+       60   WS-DATE. . . . . . . . . . . .  328                                                                                                                                                  
+       43   WS-EYECATCHER                                                                                                                                                                        
+       48   WS-FILLER                                                                                                                                                                            
+       42   WS-HEADER. . . . . . . . . . .  M153                                                                                                                                                 
+      103   WS-REQUIRED-CA-LEN . . . . . .  M180 M181 184                                                                                                                                        
+       53   WS-RESP. . . . . . . . . . . .  229                                                                                                                                                  
+       47   WS-TASKNUM . . . . . . . . . .  M157                                                                                                                                                 
+       46   WS-TERMID. . . . . . . . . . .  M156                                                                                                                                                 
+       59   WS-TIME. . . . . . . . . . . .  329                                                                                                                                                  
+       45   WS-TRANSID . . . . . . . . . .  M155                                                                                                                                                 
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612LGACDB01  Date 09/20/2023  Time 17:42:35   Page    15             
+0Context usage is indicated by the letter preceding a procedure-name reference.
+ These letters and their meanings are:
+     A = ALTER (procedure-name)
+     D = GO TO (procedure-name) DEPENDING ON
+     E = End of range of (PERFORM) through (procedure-name)
+     G = GO TO (procedure-name)
+     P = PERFORM (procedure-name)
+     T = (ALTER) TO PROCEED TO (procedure-name)
+     U = USE FOR DEBUGGING (procedure-name)
+  
+  Defined   Cross-reference of procedures   References                                                                               
+  
+      238   INSERT-CUSTOMER. . . . . . . .  P191                                                                                                                                                 
+      147   MAINLINE                                                                                                                                                                             
+      217   MAINLINE-EXIT                                                                                                                                                                        
+      222   OBTAIN-CUSTOMER-NUMBER . . . .  P190                                                                                                                                                 
+      318   WRITE-ERROR-MESSAGE. . . . . .  P170 P270 P299                                                                                                                                       
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612LGACDB01  Date 09/20/2023  Time 17:42:35   Page    16             
+0 Defined   Cross-reference of programs     References                                                                               
+  
+       30   LGACDB01                                                                                                                                                                             
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612LGACDB01  Date 09/20/2023  Time 17:42:35   Page    17             
+0LineID  Message code  Message text
+                                                                                                                                     
+         IGYSC0207-S   Severe message(s) were issued during library phase processing.  Refer to the beginning of the listing.        
+                                                                                                                                     
+    128  IGYDS0225-S   An "EXEC SQL" statement was found, but the "SQL" compiler option was not in effect.  The statement was        
+                       discarded.                                                                                                    
+                                                                                                                                     
+                       Same message on line:    138    246    275    304                                                             
+                                                                                                                                     
+    136  IGYDS1159-E   A "PICTURE" clause was not found for elementary item "DFHCOMMAREA".  "PICTURE X(1)" was assumed.              
+                                                                                                                                     
+    136  IGYSC2025-W   "DFHCOMMAREA" or one of its subordinates was referenced, but "DFHCOMMAREA" was a "LINKAGE SECTION" item that  
+                       did not have addressability.  This reference will not be resolved successfully at execution.                  
+                                                                                                                                     
+    155  IGYPS2121-S   "EIBTRNID" was not defined as a data-name.  The statement was discarded.                                      
+                                                                                                                                     
+    156  IGYPS2121-S   "EIBTRMID" was not defined as a data-name.  The statement was discarded.                                      
+                                                                                                                                     
+    157  IGYPS2121-S   "EIBTASKN" was not defined as a data-name.  The statement was discarded.                                      
+                                                                                                                                     
+    168  IGYPS2121-S   "EIBCALEN" was not defined as a data-name.  The statement was discarded.                                      
+                                                                                                                                     
+                       Same message on line:    176    184    336    337    338                                                      
+                                                                                                                                     
+    171  IGYPS0228-S   An "EXEC CICS" statement was found, but the "CICS" compiler option was not in effect.  The statement was      
+                       discarded.                                                                                                    
+                                                                                                                                     
+                       Same message on line:    186    193    205    211    215    224    271    300    322    324    331    339     
+                                                345                                                                                  
+                                                                                                                                     
+    175  IGYPS2121-S   "CA-RETURN-CODE" was not defined as a data-name.  The statement was discarded.                                
+                                                                                                                                     
+                       Same message on line:    185    210    269    298                                                             
+                                                                                                                                     
+    181  IGYPS2121-S   "WS-CUSTOMER-LEN" was not defined as a data-name.  The statement was discarded.                               
+                                                                                                                                     
+    229  IGYPS2121-S   "DFHRESP" was not defined as a data-name.  The statement was discarded.                                       
+                                                                                                                                     
+    229  IGYPS2121-S   "NORMAL" was not defined as a data-name.  The statement was discarded.                                        
+                                                                                                                                     
+    229  IGYPS2120-S   Expected a reference-modification specification but found ")".  The "IF" statement was discarded.             
+                                                                                                                                     
+    258  IGYPS2121-S   "CA-FIRST-NAME" was not defined as a data-name.  The statement was discarded.                                 
+                                                                                                                                     
+                       Same message on line:    287                                                                                  
+                                                                                                                                     
+    259  IGYPS2121-S   "CA-LAST-NAME" was not defined as a data-name.  The statement was discarded.                                  
+                                                                                                                                     
+                       Same message on line:    288                                                                                  
+                                                                                                                                     
+    260  IGYPS2121-S   "CA-DOB" was not defined as a data-name.  The statement was discarded.                                        
+                                                                                                                                     
+                       Same message on line:    289                                                                                  
+                                                                                                                                     
+    261  IGYPS2121-S   "CA-HOUSE-NAME" was not defined as a data-name.  The statement was discarded.                                 
+                                                                                                                                     
+                       Same message on line:    290                                                                                  
+                                                                                                                                     
+1PP 5724-L44 IBM COBOL for Windows                   8.0.0 S1612LGACDB01  Date 09/20/2023  Time 17:42:35   Page    18             
+0   262  IGYPS2121-S   "CA-HOUSE-NUM" was not defined as a data-name.  The statement was discarded.                                  
+                                                                                                                                     
+                       Same message on line:    291                                                                                  
+                                                                                                                                     
+    263  IGYPS2121-S   "CA-POSTCODE" was not defined as a data-name.  The statement was discarded.                                   
+                                                                                                                                     
+                       Same message on line:    292                                                                                  
+                                                                                                                                     
+    264  IGYPS2121-S   "CA-PHONE-MOBILE" was not defined as a data-name.  The statement was discarded.                               
+                                                                                                                                     
+                       Same message on line:    293                                                                                  
+                                                                                                                                     
+    265  IGYPS2121-S   "CA-PHONE-HOME" was not defined as a data-name.  The statement was discarded.                                 
+                                                                                                                                     
+                       Same message on line:    294                                                                                  
+                                                                                                                                     
+    266  IGYPS2121-S   "CA-EMAIL-ADDRESS" was not defined as a data-name.  The statement was discarded.                              
+                                                                                                                                     
+                       Same message on line:    295                                                                                  
+                                                                                                                                     
+    268  IGYPS2121-S   "SQLCODE" was not defined as a data-name.  The statement was discarded.                                       
+                                                                                                                                     
+                       Same message on line:    297    320                                                                           
+                                                                                                                                     
+    308  IGYPS2121-S   "CA-CUSTOMER-NUM" was not defined as a data-name.  The statement was discarded.                               
+-Messages    Total    Informational    Warning    Error    Severe    Terminating
+0Printed:      62                          1         1        60            
+-* Statistics for COBOL program LGACDB01:
+ *    Source records = 351
+ *    Data Division statements = 45
+ *    Procedure Division statements = 63
+0Locale = en_US.IBM-437
+0End of compilation 1,  program LGACDB01,  highest severity: Severe.
+0Return code 12
